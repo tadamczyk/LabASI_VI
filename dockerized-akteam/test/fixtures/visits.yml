@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  doctor_id: 1
+  patient_id: 1
+  date_of_visit: 2018-03-08 11:29:46
+  description: MyText
+  price: 9.99
+
+two:
+  doctor_id: 1
+  patient_id: 1
+  date_of_visit: 2018-03-08 11:29:46
+  description: MyText
+  price: 9.99

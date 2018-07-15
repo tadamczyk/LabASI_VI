@@ -1,0 +1,37 @@
+<%= form_with(model: doctor, local: true) do |form| %>
+  <% if doctor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+      <ul>
+      <% doctor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :firstname, :class => "control-label col-md-1" %>
+    <%= form.text_field :firstname, :class => "col-md-3" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lastname, :class => "control-label col-md-1" %>
+    <%= form.text_field :lastname, :class => "col-md-3" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :occupation, :class => "control-label col-md-1" %>
+    <%= form.text_field :occupation, :class => "col-md-3" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pesel, "PESEL", :class => "control-label col-md-1" %>
+    <%= form.text_field :pesel, :class => "col-md-3" %>
+  </div>
+
+  <div class="field" style="margin-top: 10px;">
+    <%= form.submit 'Save', :class => "btn btn-success btn-sm" %>
+  </div>
+
+<% end %>

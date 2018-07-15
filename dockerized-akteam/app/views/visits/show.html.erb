@@ -1,0 +1,40 @@
+<p id="notice" class="text-center"><%= notice %></p>
+
+<div class="container">
+  <div class="d-inline-block">
+    <h2>Visit</h2>
+  </div>
+
+  <hr />
+  <p>
+    <strong>Doctor:</strong>
+    <%= @visit.doctor.name %>
+  </p>
+
+  <p>
+    <strong>Patient:</strong>
+    <%= @visit.patient.name %>
+  </p>
+
+  <p>
+    <strong>Date of Visit:</strong>
+    <%= @visit.date_of_visit.strftime("%F %H:%M") %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @visit.description %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @visit.price %>
+  </p>
+
+  <hr />
+
+  <%= link_to 'Edit', edit_visit_path(@visit), :class => "btn btn-success btn-sm" %>
+  <%= link_to 'Delete', @visit, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
+  <%= link_to 'Back', visits_path, :class => "btn btn-primary btn-sm" %>
+
+</div>

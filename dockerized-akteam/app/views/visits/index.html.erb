@@ -1,0 +1,52 @@
+<p id="notice" class="text-center"><%= notice %></p>
+
+<div class="container">
+  <div class="d-inline-block">
+    <h1>Visits</h1>
+  </div>
+  <div class="d-inline-block float-right" style="margin-top: 10px;">
+    <%= link_to 'New Visit', new_visit_path, :class => "btn btn-primary btn-sm" %>
+  </div>
+  <table class="table table-stripped table-hover">
+    <thead>
+      <tr>
+        <th><%= sortable "doctor_id", "Doctor" %></th>
+        <th><%= sortable "patient_id", "Patient" %></th>
+        <th><%= sortable "date_of_visit", "Date of Visit" %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @visits.each do |visit| %>
+      <tr>
+        <td>
+          <%= visit.doctor.name %>
+        </td>
+        <td>
+          <%= visit.patient.name %>
+        </td>
+        <td>
+          <%= visit.date_of_visit.strftime("%F %H:%M") %>
+        </td>
+        <td>
+          <%= link_to 'Show', visit , :class => "btn btn-warning btn-sm" %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_visit_path(visit), :class => "btn btn-success btn-sm" %>
+        </td>
+        <td>
+          <%= link_to 'Delete', visit, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-center">
+    <div class="p-2">
+      <%= paginate @visits %>
+    </div>
+  </div>
+
+</div>

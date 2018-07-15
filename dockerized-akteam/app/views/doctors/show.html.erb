@@ -1,0 +1,36 @@
+<p id="notice" class="text-center"><%= notice %></p>
+
+<div class="container">
+  <div class="d-inline-block">
+    <h2>Doctor <%= @doctor.firstname %> <%= @doctor.lastname %>, <%= @doctor.occupation %></h2>
+  </div>
+
+  <hr />
+
+  <p>
+    <strong>Firstname:</strong>
+    <%= @doctor.firstname %>
+  </p>
+
+  <p>
+    <strong>Lastname:</strong>
+    <%= @doctor.lastname %>
+  </p>
+
+  <p>
+    <strong>Occupation:</strong>
+    <%= @doctor.occupation %>
+  </p>
+
+  <p>
+    <strong>PESEL:</strong>
+    <%= @doctor.pesel %>
+  </p>
+
+  <hr />
+
+  <%= link_to 'Edit', edit_doctor_path(@doctor), :class => "btn btn-success btn-sm" %> 
+  <%= link_to 'Delete', @doctor, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %> 
+  <%= link_to 'Back', doctors_path, :class => "btn btn-primary btn-sm" %>
+
+</div>

@@ -1,0 +1,64 @@
+<p id="notice" class="text-center">
+  <%= notice %>
+</p>
+
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <div class="p-2">
+      <h1>Patients</h1>
+    </div>
+    <div class="p-3">
+      <div class="input-group">
+        <form accept-charset="UTF-8" action="patients" method="get">
+          <input id="patient" name="patient" type="text" class="form-control" placeholder="Firstname or lastname..."/>
+        </form>
+      </div>
+    </div>
+    <div class="p-3">
+      <%= link_to 'New Patient', new_patient_path, :class => "btn btn-primary btn-sm" %>
+    </div>
+  </div>
+
+  <table class="table table-stripped table-hover">
+    <thead>
+      <tr>
+        <th><%= sortable "firstname", "Firstname" %></th>
+        <th><%= sortable "lastname", "Lastname" %></th>
+        <th><%= sortable "date_of_birth", "Date of Birth" %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% @patients.each do |patient| %>
+      <tr>
+        <td>
+          <%= patient.firstname %>
+        </td>
+        <td>
+          <%= patient.lastname %>
+        </td>
+        <td>
+          <%= patient.date_of_birth %>
+        </td>
+        <td>
+          <%= link_to 'Show', patient , :class => "btn btn-warning btn-sm" %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_patient_path(patient), :class => "btn btn-success btn-sm" %>
+        </td>
+        <td>
+          <%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-center">
+    <div class="p-2">
+      <%= paginate @patients %>
+    </div>
+  </div>
+
+</div>

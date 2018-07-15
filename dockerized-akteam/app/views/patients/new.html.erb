@@ -1,0 +1,16 @@
+<p id="notice" class="text-center"><%= notice %></p>
+
+<div class="container">
+  <div class="d-inline-block">
+    <h2>New Patient</h2>
+  </div>
+
+  <hr />
+
+  <%= render 'form', patient: @patient %>
+
+  <hr />
+
+  <%= link_to 'Back', patients_path, :class => "btn btn-primary btn-sm" %>
+
+</div>

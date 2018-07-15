@@ -1,0 +1,17 @@
+<p id="notice" class="text-center"><%= notice %></p>
+
+<div class="container">
+    <div class="d-inline-block">
+        <h2>Editing Doctor <%= @doctor.firstname %> <%= @doctor.lastname %>, <%= @doctor.occupation %></h2>
+    </div>
+
+    <hr />
+
+    <%= render 'form', doctor: @doctor %>
+
+    <hr />
+
+    <%= link_to 'Show', @doctor , :class => "btn btn-warning btn-sm" %> 
+    <%= link_to 'Back', doctors_path, :class => "btn btn-primary btn-sm" %>
+
+</div>
